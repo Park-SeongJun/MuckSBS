@@ -1,10 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerRay : MonoBehaviour
 {
     Collider other;
+
+    public Image image;
+
+    public bool img = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,7 +52,7 @@ public class PlayerRay : MonoBehaviour
                         other.GetComponent<Tree>().HideTree();
                         break;
                 }
-            }
+            }            
         }
     }
 
