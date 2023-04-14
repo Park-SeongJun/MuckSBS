@@ -9,8 +9,7 @@ public class UI : MonoBehaviour
     public static UI Instance;
 
     public GameObject inputUI;
-    [SerializeField] private Transform toastPopup;
-
+    [SerializeField] private RectTransform toastPopup;
 
     void Awake()
     {
@@ -30,7 +29,7 @@ public class UI : MonoBehaviour
     public void ToastPopup(string ment)
     {
         toastPopup.GetChild(0).GetComponent<TMP_Text>().text = ment;
-        toastPopup.position = new Vector2(0, 10);
+        toastPopup.anchoredPosition = new Vector2(0, 10);
 
         StopCoroutine("Toast");
         StartCoroutine("Toast");
@@ -38,11 +37,11 @@ public class UI : MonoBehaviour
 
     IEnumerator Toast()
     {
+        toastPopup.anchoredPosition = new Vector2(0, 10);
         while(true)
         {
-            yield return new WaitForSeconds(0.01f);
-            if (toastPopup.localPosition.y > -100)
-                toastPopup.localPosition = Vector2.down * 5f;
+            if (toastPopup.anchoredPosition.y > -100)
+                toastPopup.anchoredPosition = Vector2.down * 5f;
             else
                 break;
         }
@@ -50,11 +49,13 @@ public class UI : MonoBehaviour
 
         while (true)
         {
-            yield return new WaitForSeconds(0.01f);
-            if (toastPopup.localPosition.y <= 10)
-                toastPopup.Translate(Vector2.up * 10f);
+            
+            if (toastPopup.anchoredPosition.y <= 10)
+                toastPopup.anchoredPosition += Vector2.up * 10f;
             else
                 break;
+            yield return new WaitForSeconds(0.01f);
         }
+        
     }
 }

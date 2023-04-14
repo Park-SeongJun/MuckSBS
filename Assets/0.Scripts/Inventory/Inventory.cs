@@ -22,7 +22,8 @@ public class Inventory : MonoBehaviour
     void Start()
     {
         IsStartSetting = false;
-        gameObject.SetActive(false);
+        OnShow();
+        OnHide();
     }
 
         /// <summary>
