@@ -47,8 +47,13 @@ public class Inventory : MonoBehaviour
     /// </summary>
     public void AddItem(int itemIdx)
     {
+<<<<<<< Updated upstream:Assets/0.Scripts/Inventory/Inventory.cs
         /*if (lastIndex > (XCnt * YCnt) - 1)
             return;*/
+=======
+        if (lastIndex > (XCnt * YCnt) - 1)
+            return;
+>>>>>>> Stashed changes:Assets/0.Scripts/Inventory.cs
 
         // 내가 들고 있는 아이템 인벤토리에 셋팅
         itemIdx = Random.Range(0, itemData.Length);
