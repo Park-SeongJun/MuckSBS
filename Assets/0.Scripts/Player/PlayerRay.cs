@@ -28,6 +28,9 @@ public class PlayerRay : MonoBehaviour
 
             if (UI.Instance.inputUI.activeInHierarchy)
             {
+                Debug.Log(other);
+                Debug.Log(gameObject);
+                Debug.Log(tag);
                 switch (other.gameObject.tag)
                 {
                     case "hunting":

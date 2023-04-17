@@ -48,11 +48,11 @@ public class Inventory : MonoBehaviour
     /// </summary>
     public void AddItem(int itemIdx)
     {
+        // 인벤토리에 넘어가지 않게 예외처리
         if (lastIndex > (XCnt * YCnt) - 1)
             return;
 
         // 내가 들고 있는 아이템 인벤토리에 셋팅
-        itemIdx = Random.Range(0, itemData.Length);
         ItemData id = itemData[itemIdx];
 
         // 아이템을 새로 만들어야 할 때
@@ -61,14 +61,14 @@ public class Inventory : MonoBehaviour
             inventoryItemList[lastIndex].SetData(id);
             lastIndex++;
 
-            UI.Instance.ToastPopup($"{id.name} 을(를) 습득 하였습니다.");
+            UI.Instance.ToastPopup($"{id.Name} 을(를) 습득 하였습니다.");
         }
         else
         {
             int idx = ItemFindIndex(id.Name);
             inventoryItemList[idx].SetCount(1, true);
 
-            UI.Instance.ToastPopup($"{id.name} 을(를) 1개를 획득 하였습니다.");
+            UI.Instance.ToastPopup($"{id.Name} 을(를) 1개를 획득 하였습니다.");
         }
     }
 
@@ -78,7 +78,7 @@ public class Inventory : MonoBehaviour
     /// 
     private bool ItemAddCheck(string name)
     {
-        for (int i = 0;  i < inventoryItemList.Count;  i++)
+        for (int i = 0;  i < inventoryItemList.Count; i++)
         {
             if (inventoryItemList[i].ItemName == name)
                 return false;

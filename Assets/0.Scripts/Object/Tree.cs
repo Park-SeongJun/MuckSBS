@@ -20,7 +20,7 @@ public class Tree : MonoBehaviour
         tree.SetActive(false);
         isHide = true;
 
-        GameManager.inventory.AddItem(1);
+        GameManager.inventory.AddItem((int)ItemType.Log);
     }
 
     public void ShowTree()
