@@ -38,24 +38,19 @@ public class UI : MonoBehaviour
     IEnumerator Toast()
     {
         toastPopup.anchoredPosition = new Vector2(0, 10);
-        while(true)
-        {
-            if (toastPopup.anchoredPosition.y > -100)
-                toastPopup.anchoredPosition = Vector2.down * 5f;
-            else
-                break;
-        }
-        yield return new WaitForSeconds(2f);
 
-        while (true)
+        for (int i = 0; i < 25; i++)
         {
-            
-            if (toastPopup.anchoredPosition.y <= 10)
-                toastPopup.anchoredPosition += Vector2.up * 10f;
-            else
-                break;
+            toastPopup.anchoredPosition += Vector2.down * 5f;
             yield return new WaitForSeconds(0.01f);
         }
-        
+
+        yield return new WaitForSeconds(2f);
+
+        for (int i = 0; i < 25; i++)
+        {
+            toastPopup.anchoredPosition += Vector2.up * 10f;
+            yield return new WaitForSeconds(0.01f);
+        }
     }
 }

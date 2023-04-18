@@ -6,7 +6,6 @@ TagManager:
   tags:
   - PlayerEyes
   - hunting
-  - hunted
   layers:
   - Default
   - TransparentFX

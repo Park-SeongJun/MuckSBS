@@ -7,10 +7,6 @@ public class PlayerRay : MonoBehaviour
 {
     Collider other;
 
-    public Image image;
-
-    public bool img = false;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -28,9 +24,6 @@ public class PlayerRay : MonoBehaviour
 
             if (UI.Instance.inputUI.activeInHierarchy)
             {
-                Debug.Log(other);
-                Debug.Log(gameObject);
-                Debug.Log(tag);
                 switch (other.gameObject.tag)
                 {
                     case "hunting":
@@ -43,17 +36,15 @@ public class PlayerRay : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        switch (other.gameObject.tag)
+        if (other.gameObject.CompareTag("hunting"))
         {
-            case "hunting":
-                UI.Instance?.ShowInputUI(true);
-                this.other = other;
-                break;
+            UI.Instance.ShowInputUI(true);
+            this.other = other;
         }
     }
     void OnTriggerExit(Collider other)
     {
-        UI.Instance?.ShowInputUI(false);
+        UI.Instance.ShowInputUI(false);
         this.other = null;
     }
 }
