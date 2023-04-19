@@ -11,7 +11,7 @@ public class Rock : MonoBehaviour
     float delay = 0;
     bool isHide = false;
 
-    public void HideTree()
+    public void HideRock()
     {
         if (!rock.activeInHierarchy)
             return;
@@ -22,7 +22,7 @@ public class Rock : MonoBehaviour
         GameManager.inventory.AddItem((int)ItemType.Stone);
     }
 
-    public void ShowTree()
+    public void ShowRock()
     {
         rock.SetActive(true);
         isHide = false;
@@ -36,7 +36,7 @@ public class Rock : MonoBehaviour
         if (delay > resetTime)
         {
             delay = 0;
-            ShowTree();
+            ShowRock();
         }
     }
 }
