@@ -63,7 +63,10 @@
     <Compile Include="Assets\0.Scripts\Item\ItemData.cs" />
     <Compile Include="Assets\0.Scripts\Player\PlayerRay.cs" />
     <Compile Include="Assets\0.Scripts\Object\Apple.cs" />
+<<<<<<< Updated upstream
     <Compile Include="Assets\Res3D\BrokenVector\LowPolyFencePack\Scripts\DoorController.cs" />
+=======
+>>>>>>> Stashed changes
     <Compile Include="Assets\0.Scripts\Object\Rock.cs" />
     <Compile Include="Assets\0.Scripts\UI\UI.cs" />
     <Compile Include="Assets\Res3D\Jammo-Character\Scripts\CharacterSkinController.cs" />
