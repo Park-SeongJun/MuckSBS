@@ -39,7 +39,7 @@ public class UI : MonoBehaviour
     {
         toastPopup.anchoredPosition = new Vector2(0, 10);
 
-        for (int i = 0; i < 25; i++)
+        for (int i = 0; i < 30; i++)
         {
             toastPopup.anchoredPosition += Vector2.down * 5f;
             yield return new WaitForSeconds(0.01f);
@@ -47,7 +47,7 @@ public class UI : MonoBehaviour
 
         yield return new WaitForSeconds(2f);
 
-        for (int i = 0; i < 25; i++)
+        for (int i = 0; i < 30; i++)
         {
             toastPopup.anchoredPosition += Vector2.up * 10f;
             yield return new WaitForSeconds(0.01f);
