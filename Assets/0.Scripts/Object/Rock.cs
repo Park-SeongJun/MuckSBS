@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Rock : MonoBehaviour
 {
-    [SerializeField] private GameObject rock;
+    [SerializeField] private GameObject stone;
 
     [HideInInspector] public float resetTime = 2f;
 
@@ -13,10 +13,10 @@ public class Rock : MonoBehaviour
 
     public void HideRock()
     {
-        if (!rock.activeInHierarchy)
+        if (!stone.activeInHierarchy)
             return;
 
-        rock.SetActive(false);
+        stone.SetActive(false);
         isHide = true;
 
         GameManager.inventory.AddItem((int)ItemType.Stone);
@@ -24,7 +24,7 @@ public class Rock : MonoBehaviour
 
     public void ShowRock()
     {
-        rock.SetActive(true);
+        stone.SetActive(true);
         isHide = false;
     }
     void Update()

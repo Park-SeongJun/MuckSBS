@@ -27,7 +27,7 @@ public class PlayerRay : MonoBehaviour
                 switch (other.gameObject.tag)
                 {
                     case "hunting":
-                        other.GetComponent<Tree>().HideTree();
+                        other.GetComponent<Rock>().HideRock();
                         break;
                 }
             }            
