@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class FenceDoor : MonoBehaviour
 {
-    public Transform player;
-    public Transform door;
+    [SerializeField] private Transform player;
+    [SerializeField] private Transform door;
     public float Distance;
     /// <summary>
     /// door state: Open or Closed

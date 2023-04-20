@@ -18,7 +18,7 @@ public class PlayerRay : MonoBehaviour
     {
         // 채집 가능
         if (Input.GetKeyDown(KeyCode.F))
-        {
+        {            
             if (UI.Instance == null)
                 return;
 
