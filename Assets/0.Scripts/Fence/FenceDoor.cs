@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class FenceDoor : MonoBehaviour
 {
-        /// <summary>
-        /// door state: Open or Closed
-        /// </summary>
-        public enum DoorState
+    public Transform player;
+    public Transform door;
+    public float Distance;
+    /// <summary>
+    /// door state: Open or Closed
+    /// </summary>
+    public enum DoorState
     {
         Open,
         Closed
@@ -79,8 +82,18 @@ public class FenceDoor : MonoBehaviour
 
     void Update()
     {
-        
+        Distance = (Vector3.Distance(player.position, door.position));
+
+        if (Distance <= 3)
+        {
+            OpenDoor();
+        }
+        else if (Distance > 3)
+        {
+            CloseDoor();
+        }
     }
+
     /// <summary>
     /// Closes the door.
     /// </summary>
@@ -102,7 +115,6 @@ public class FenceDoor : MonoBehaviour
 
         CurrentState = DoorState.Open;
     }
-
     /// <summary>
     /// Changes the current door state.
     /// </summary>

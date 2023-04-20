@@ -5441,7 +5441,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.393527, y: 1.6605175, z: 2.9965231}
+  m_Size: {x: 3, y: 1.6, z: 3}
   m_Center: {x: -1.4839096, y: 0.6755277, z: 1.4454612}
 --- !u!114 &769836744
 MonoBehaviour:
@@ -5455,10 +5455,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c7144d08929c642be9c12b7b4eb0bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 539745478518072746}
+  door: {fileID: 763800135}
+  Distance: 0
   InitialState: 1
   AnimationSpeed: 1
-  openAnimation: {fileID: 0}
-  closeAnimation: {fileID: 0}
+  openAnimation: {fileID: 7400002, guid: d70931b351fe10a45a0bfc07fd362a1b, type: 3}
+  closeAnimation: {fileID: 7400000, guid: d70931b351fe10a45a0bfc07fd362a1b, type: 3}
 --- !u!1001 &788498945
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13561,7 +13564,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1977584474}
-  m_LocalRotation: {x: 0.10174228, y: -0.5495721, z: 0.067655414, w: 0.8264634}
+  m_LocalRotation: {x: 0.101742275, y: -0.5495721, z: 0.06765542, w: 0.8264634}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

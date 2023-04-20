@@ -9,7 +9,6 @@ namespace BrokenVector.LowPolyFencePack
     [RequireComponent(typeof(Animation))]
     public class DoorController : MonoBehaviour
     {
-
         /// <summary>
         /// door state: Open or Closed
         /// </summary>
