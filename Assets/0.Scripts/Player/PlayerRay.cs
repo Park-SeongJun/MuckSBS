@@ -29,6 +29,10 @@ public class PlayerRay : MonoBehaviour
                     case "hunting":
                         other.GetComponent<Rock>().HideRock();
                         break;
+                    case "hunting1":
+                        other.GetComponent<Tree>().HideTree();
+                        break;
+
                 }
             }            
         }

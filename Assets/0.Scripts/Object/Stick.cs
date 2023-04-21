@@ -11,7 +11,7 @@ public class Stick : MonoBehaviour
     float delay = 0;
     bool isHide = false;
 
-    public void HideTree()
+    public void HideStick()
     {
         if (!stick.activeInHierarchy)
             return;
@@ -19,10 +19,10 @@ public class Stick : MonoBehaviour
         stick.SetActive(false);
         isHide = true;
 
-        GameManager.inventory.AddItem((int)ItemType.Stone);
+        GameManager.inventory.AddItem((int)ItemType.Stick);
     }
 
-    public void ShowTree()
+    public void ShowStick()
     {
         stick.SetActive(true);
         isHide = false;
@@ -36,7 +36,7 @@ public class Stick : MonoBehaviour
         if (delay > resetTime)
         {
             delay = 0;
-            ShowTree();
+            ShowStick();
         }
     }
 }

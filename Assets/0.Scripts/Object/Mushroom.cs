@@ -11,7 +11,7 @@ public class Mushroom : MonoBehaviour
     float delay = 0;
     bool isHide = false;
 
-    public void HideTree()
+    public void HideMushroom()
     {
         if (!mushroom.activeInHierarchy)
             return;
@@ -19,10 +19,10 @@ public class Mushroom : MonoBehaviour
         mushroom.SetActive(false);
         isHide = true;
 
-        GameManager.inventory.AddItem((int)ItemType.Stone);
+        GameManager.inventory.AddItem((int)ItemType.Mushroom);
     }
 
-    public void ShowTree()
+    public void ShowMushroom()
     {
         mushroom.SetActive(true);
         isHide = false;
@@ -36,7 +36,7 @@ public class Mushroom : MonoBehaviour
         if (delay > resetTime)
         {
             delay = 0;
-            ShowTree();
+            ShowMushroom();
         }
     }
 }
