@@ -9,7 +9,7 @@ public class Bear : Enemy
     {
         data.spd = 1f;
         data.state = State.Idle;
-        data.target = FindObjectOfType<PlayerKeyEvent>().transform;
-        data.animator = GetComponet<Animator>();
+        data.target = FindObjectOfType<PlayerRay>().transform;
+        data.animator = GetComponent<Animator>();
     }
 }
