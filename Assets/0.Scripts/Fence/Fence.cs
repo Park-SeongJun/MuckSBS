@@ -6,6 +6,11 @@ public class Fence : MonoBehaviour
 {
     public float HP { get; set; }
 
+    void Start()
+    {
+        HP = 10;
+    }
+
     public void Hit(float dmg)
     {
         HP -= dmg;

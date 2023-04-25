@@ -15,10 +15,11 @@ public abstract class Enemy : MonoBehaviour
     protected struct Data
     {
         public float spd;
-        public float atkDelay;
+        public float atkDelay;       
         public State state;
         public Transform target;
         public Animator animator;
+        public float HP { get; set; }
     }
 
     protected Data data = new Data();
@@ -45,6 +46,10 @@ public abstract class Enemy : MonoBehaviour
 
                 int rand = UnityEngine.Random.Range(1, 3);
                 data.animator.SetTrigger($"Attack1{rand}");
+                if (data.target.GetComponent<>())
+                {
+
+                }
                 //히트(데미지) 제공
                 //Invoke("FindTarget", 0.5f);
             }
@@ -84,5 +89,19 @@ public abstract class Enemy : MonoBehaviour
         }
 
         data.target = obj.transform;
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.GetComponent<TurretBullet>())
+        {
+            data.HP -= other.GetComponent<TurretBullet>().dmg;
+
+            if(data.HP <= 0)
+            {
+                Destroy(gameObject);
+            }
+            Destroy(other.gameObject);
+        }
     }
 }

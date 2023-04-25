@@ -9,6 +9,7 @@ public class Bear : Enemy
     {
         data.spd = 1f;
         data.atkDelay = 2f;
+        data.HP = 100;
         data.state = State.Idle;
         data.target = FindObjectOfType<PlayerRay>().transform;
         data.animator = GetComponent<Animator>();
