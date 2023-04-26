@@ -56,6 +56,7 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\0.Scripts\Turret\TurretBullet.cs" />
     <Compile Include="Assets\0.Scripts\Enemy\Bear.cs" />
     <Compile Include="Assets\0.Scripts\Enemy\BearBaby.cs" />
     <Compile Include="Assets\0.Scripts\Object\Stick.cs" />
@@ -75,6 +76,7 @@
     <Compile Include="Assets\Res3D\Jammo-Character\Scripts\MovementInput.cs" />
     <Compile Include="Assets\0.Scripts\Inventory\Inventory.cs" />
     <Compile Include="Assets\0.Scripts\Turret\TurretHead.cs" />
+    <Compile Include="Assets\0.Scripts\Enemy\EnemyController.cs" />
     <Compile Include="Assets\0.Scripts\Player.cs" />
     <Compile Include="Assets\Res3D\Blink\Art\Animals\Stylized\Demo_Animals\DemoData\AnimationDemo.cs" />
     <Compile Include="Assets\Res3D\BrokenVector\LowPolyFencePack\Scripts\DoorToggle.cs" />
@@ -84,8 +86,6 @@
     <Compile Include="Assets\0.Scripts\Inventory\InventoryItem.cs" />
     <Compile Include="Assets\0.Scripts\Object\Tree.cs" />
     <Compile Include="Assets\0.Scripts\Enemy\Enemy.cs" />
-    <Compile Include="Assets\0.Scripts\Enemy\EnemyController.cs" />
-    <Compile Include="Assets\0.Scripts\Turret\TurretBullet.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -364,6 +364,12 @@
     </Reference>
     <Reference Include="ReportGeneratorMerged">
       <HintPath>Library\PackageCache\com.unity.testtools.codecoverage@1.2.2\lib\ReportGenerator\ReportGeneratorMerged.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Android.Types">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.23f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Android.Gradle">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.23f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Gradle.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.23f1\Editor\Data\NetStandard\ref\2.1.0\netstandard.dll</HintPath>

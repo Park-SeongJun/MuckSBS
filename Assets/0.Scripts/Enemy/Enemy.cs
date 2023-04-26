@@ -46,7 +46,7 @@ public abstract class Enemy : MonoBehaviour
 
                 int rand = UnityEngine.Random.Range(1, 3);
                 data.animator.SetTrigger($"Attack1{rand}");
-                if (data.target.GetComponent<>())
+                if (data.target.GetComponent<Bear>())
                 {
 
                 }

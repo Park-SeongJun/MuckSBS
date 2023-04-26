@@ -14,6 +14,7 @@ public class Turret : MonoBehaviour
     [SerializeField] Transform head;
     [SerializeField] Transform mount;
 
+    [SerializeField] Transform enemy;
     [SerializeField] TurretBullet tb;
     [SerializeField] Transform tempParent;
     [SerializeField] Transform parent;
@@ -38,7 +39,7 @@ public class Turret : MonoBehaviour
         Enemy e = FindEnemy();
         if(e == null)
         {
-            if(state ! = State.end)
+            if(state != State.end)
             {
                 CancelInvoke("FireBullet");
                 animator.SetTrigger("end");
@@ -62,7 +63,7 @@ public class Turret : MonoBehaviour
             Quaternion q = Quaternion.LookRotation(vec).normalized;
         }
         
-        float dis = Vector3.Distance(turret.position, player.position);
+        float dis = Vector3.Distance(head.position, enemy.position);
 
         if (dis <= 3)
         {
