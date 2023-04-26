@@ -4,11 +4,43 @@ using UnityEngine;
 
 public class TurretBullet : MonoBehaviour
 {
-    [HideInInspector] public float dmg = 10;
+    [HideInInspector] public float Dmg { get; set;}
 
-    // Start is called before the first frame update
-    void Start() => Destroy(gameObject, 3f);
+    Turret turret = null;
 
-    // Update is called once per frame
-    void Update() => transform.Translate(Vector3.forward * Time.deltaTime * 10f);
+    float disableTimer = 0;
+    void Update()
+    {
+        transform.Translate(Vector3.forward * Time.deltaTime * 10f);
+
+        if (gameObject.activeInHierarchy)
+        {
+            disableTimer += Time.deltaTime;
+            if(disableTimer > 3)
+            {
+                disableTimer = 0;
+                Disable();
+            }
+        }
+            
+    }
+
+
+    public void SetTurret(Turret turret)
+    {
+        disableTimer = 0;
+        transform.localRotation = Quaternion.Euler(Vector3.zero);
+        transform.localPosition = Vector3.zero;
+        gameObject.SetActive(true);
+        if (this.turret == null)
+            this.turret = turret;
+    }
+
+    public void Disable()
+    {
+        CancelInvoke("Disable");
+        turret.BulletDisable(this);
+
+        gameObject.SetActive(false);
+    }
 }

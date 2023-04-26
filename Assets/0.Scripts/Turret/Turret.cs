@@ -14,29 +14,43 @@ public class Turret : MonoBehaviour
     [SerializeField] Transform head;
     [SerializeField] Transform mount;
 
-    [SerializeField] Transform enemy;
     [SerializeField] TurretBullet tb;
     [SerializeField] Transform tempParent;
     [SerializeField] Transform parent;
-    public float dis;
+
+    [SerializeField] List<TurretBullet> listTB = new List<TurretBullet>();
+    public Queue<TurretBullet> qTb = new Queue<TurretBullet>();
+
     Animator animator;
     State state = State.idle;
-
+    int level = 1;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
+
+        foreach (var item in listTB)
+        {
+            qTb.Enqueue(item);
+        }
     }
     // Start is called before the first frame update
     void Start()
     {
-        
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
         Enemy e = FindEnemy();
+        if(Input.GetKeyDown(KeyCode.F1))
+        {
+            level++;
+            Debug.Log(level);
+            CancelInvoke("FireBullet");
+            InvokeRepeating("FireBullet", 1f, JsonData.Instance.tData.turret[level - 1].attdelay);
+        }
         if(e == null)
         {
             if(state != State.end)
@@ -54,33 +68,40 @@ public class Turret : MonoBehaviour
                 state = State.start;
 
                 CancelInvoke("FireBullet");
-                InvokeRepeating("FireBullet", 2f, 0.5f);
+                InvokeRepeating("FireBullet", 2f, JsonData.Instance.tData.turret[level - 1].attdelay);
             }
 
             head.LookAt(e.transform);
 
             Vector3 vec = e.transform.position - mount.transform.position;
             Quaternion q = Quaternion.LookRotation(vec).normalized;
-        }
-        
-        float dis = Vector3.Distance(head.position, enemy.position);
-
-        if (dis <= 3)
-        {
-            animator.SetTrigger("start");
-            //state = State.start;
-        }
-        else if (dis > 3)
-        {
-            animator.SetTrigger("end");
-            //state = State.end;
+            q.z = q.x = 0;
+            mount.transform.rotation = q;
         }
     }
 
     void FireBullet()
     {
-        TurretBullet b = Instantiate(tb, tempParent);
+        TurretBullet b;
+        if(qTb.Count != 0)
+        {
+            b = qTb.Dequeue();
+        }
+        else
+        {
+            b = Instantiate(tb, tempParent);
+            qTb.Enqueue(b);
+        }
+
+        b.SetTurret(this);
         b.transform.SetParent(parent);
+        b.Dmg = JsonData.Instance.tData.turret[level - 1].att;        
+    }
+
+    public void BulletDisable(TurretBullet tb)
+    {
+        tb.transform.SetParent(tempParent);
+        qTb.Enqueue(tb);
     }
 
     Enemy FindEnemy()

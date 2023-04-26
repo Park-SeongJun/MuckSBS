@@ -1,0 +1,34 @@
+{
+ "turret":[
+   {
+    "att": 5,
+    "hp": 50,
+    "attdis": 15,
+    "attdelay": 1.0
+   },
+   {
+    "att": 10,
+    "hp": 100,
+    "attdis": 18,
+    "attdelay": 0.8
+   },
+   {
+    "att": 10,
+    "hp": 100,
+    "attdis": 18,
+    "attdelay": 0.8
+   },
+   {
+    "att": 10,
+    "hp": 100,
+    "attdis": 18,
+    "attdelay": 0.8
+   },
+   {
+    "att": 10,
+    "hp": 100,
+    "attdis": 18,
+    "attdelay": 0.8
+   }
+  ]
+}

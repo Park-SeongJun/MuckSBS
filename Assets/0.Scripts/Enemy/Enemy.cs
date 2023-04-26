@@ -46,9 +46,9 @@ public abstract class Enemy : MonoBehaviour
 
                 int rand = UnityEngine.Random.Range(1, 3);
                 data.animator.SetTrigger($"Attack1{rand}");
-                if (data.target.GetComponent<Bear>())
+                if (data.target.GetComponent<Fence>())
                 {
-
+                    data.target.GetComponent<Fence>().Hit(10);
                 }
                 //히트(데미지) 제공
                 //Invoke("FindTarget", 0.5f);
@@ -95,13 +95,13 @@ public abstract class Enemy : MonoBehaviour
     {
         if(other.GetComponent<TurretBullet>())
         {
-            data.HP -= other.GetComponent<TurretBullet>().dmg;
+            data.HP -= other.GetComponent<TurretBullet>().Dmg;
 
             if(data.HP <= 0)
             {
                 Destroy(gameObject);
             }
-            Destroy(other.gameObject);
+            other.GetComponent<TurretBullet>();
         }
     }
 }
