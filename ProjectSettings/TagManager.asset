@@ -8,6 +8,7 @@ TagManager:
   - hunting
   - build
   - enemy
+  - buildx
   layers:
   - Default
   - TransparentFX

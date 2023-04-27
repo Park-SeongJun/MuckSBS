@@ -27,10 +27,11 @@ public class PlayerRay : MonoBehaviour
                 switch (other.gameObject.tag)
                 {
                     case "hunting":
-                        other.GetComponent<Rock>().HideRock();
+                        Hunting();                        
                         break;
-                    case "hunting1":
-                        other.GetComponent<Tree>().HideTree();
+
+                    case "buildx":
+                        BuildX();
                         break;
 
                 }
@@ -50,5 +51,33 @@ public class PlayerRay : MonoBehaviour
     {
         UI.Instance.ShowInputUI(false);
         this.other = null;
+    }
+
+    void Hunting()
+    {
+        if (other.GetComponent<Rock>() != null)
+        {
+            other.GetComponent<Rock>().HideRock();
+        }
+        if (other.GetComponent<Tree>() != null)
+        {
+            other.GetComponent<Tree>().HideTree();
+        }
+        if (other.GetComponent<Rock>() != null)
+        {
+            other.GetComponent<Rock>().HideRock();
+        }
+        if (other.GetComponent<Rock>() != null)
+        {
+            other.GetComponent<Rock>().HideRock();
+        }
+    }
+
+    void BuildX()
+    {
+        if (other.GetComponent<FenceObj>() != null)
+        {
+            other.GetComponent<FenceObj>().Build();
+        }
     }
 }

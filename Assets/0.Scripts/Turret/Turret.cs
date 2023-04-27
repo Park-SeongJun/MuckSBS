@@ -83,15 +83,13 @@ public class Turret : MonoBehaviour
     void FireBullet()
     {
         TurretBullet b;
-        if(qTb.Count != 0)
-        {
-            b = qTb.Dequeue();
-        }
-        else
+        if (qTb.Count == 0)
         {
             b = Instantiate(tb, tempParent);
             qTb.Enqueue(b);
         }
+
+        b = qTb.Dequeue();
 
         b.SetTurret(this);
         b.transform.SetParent(parent);
