@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class PlayerRay : MonoBehaviour
 {
     Collider other;
+    FenceObj fObj;
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +31,7 @@ public class PlayerRay : MonoBehaviour
                         Hunting();                        
                         break;
 
-                    case "buildx":
+                    case "build":
                         BuildX();
                         break;
 
@@ -41,6 +42,7 @@ public class PlayerRay : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        
         if (other.gameObject.CompareTag("hunting"))
         {
             UI.Instance.ShowInputUI(true);
@@ -49,7 +51,7 @@ public class PlayerRay : MonoBehaviour
     }
     void OnTriggerExit(Collider other)
     {
-        UI.Instance.ShowInputUI(false);
+        UI.Instance?.ShowInputUI(false);
         this.other = null;
     }
 
@@ -63,13 +65,13 @@ public class PlayerRay : MonoBehaviour
         {
             other.GetComponent<Tree>().HideTree();
         }
-        if (other.GetComponent<Rock>() != null)
+        if (other.GetComponent<Stick>() != null)
         {
-            other.GetComponent<Rock>().HideRock();
+            other.GetComponent<Stick>().HideStick();
         }
-        if (other.GetComponent<Rock>() != null)
+        if (other.GetComponent<Mushroom>() != null)
         {
-            other.GetComponent<Rock>().HideRock();
+            other.GetComponent<Mushroom>().HideMushroom();
         }
     }
 
@@ -77,7 +79,12 @@ public class PlayerRay : MonoBehaviour
     {
         if (other.GetComponent<FenceObj>() != null)
         {
-            other.GetComponent<FenceObj>().Build();
+            if (GameManager.inventory.DeleteItem(fObj.needItemName, fObj.needCount))
+                fObj.Build();
+            else
+            {
+                UI.Instance.ToastPopup($"{fObj.needItemName}, {fObj.needItemName}개가 필요합니다.");
+            }
         }
     }
 }

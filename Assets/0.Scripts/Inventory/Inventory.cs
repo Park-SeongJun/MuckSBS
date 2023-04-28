@@ -92,7 +92,7 @@ public class Inventory : MonoBehaviour
     /// 
     private int ItemFindIndex(string name)
     {
-        int index = 0;
+        int index = -1;
         for (int i = 0; i < inventoryItemList.Count; i++)
         {
             if (inventoryItemList[i].ItemName == name)
@@ -104,6 +104,20 @@ public class Inventory : MonoBehaviour
         return index;
     }
 
+    public bool DeleteItem(string name, int count)
+    {
+        int idx = ItemFindIndex(name);
+
+        if (idx != -1)
+        {
+            if(inventoryItemList[idx].Count >= count)
+            {
+                inventoryItemList[idx].SetCount(count, false);
+                return true;
+            }
+        }
+        return false;
+    }
     /// <summary>
     /// 인벤토리 화면을 보여줄 때 실행되는 함수
     /// </summary>

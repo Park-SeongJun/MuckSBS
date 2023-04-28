@@ -8,9 +8,11 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private Transform parent;
 
     [SerializeField] private BoxCollider spawnBox;
+    [SerializeField] private Sun sun;
 
     int spawnCnt = 0;
     int spawnMaxCnt = 10;
+    bool isSpawn = false;
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +20,15 @@ public class EnemyController : MonoBehaviour
         StartCoroutine("SpawnStart");
     }
 
+    void Update()
+    {
+        float x = sun.transform.eulerAngles.x;
+        if (!isSpawn && (x > 60 && x < 61))
+        {
+            isSpawn = true;
+            StartCoroutine("SpawnStart");
+        }
+    }
     public IEnumerator SpawnStart()
     {
         for (int i = 0; i < spawnMaxCnt; i++)
@@ -26,6 +37,7 @@ public class EnemyController : MonoBehaviour
             e.transform.localPosition = RandomPosition();
             yield return new WaitForSeconds(3f);
         }
+        isSpawn = false;
     }
 
     Vector3 RandomPosition()
