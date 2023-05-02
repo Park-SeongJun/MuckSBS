@@ -31,9 +31,14 @@ public class PlayerRay : MonoBehaviour
                         Hunting();                        
                         break;
 
-                    case "build":
+                    case "buildx":
                         BuildX();
                         break;
+
+                    case "build":
+                        Fence();
+                        break;
+
 
                 }
             }            
@@ -79,8 +84,29 @@ public class PlayerRay : MonoBehaviour
     {
         if (other.GetComponent<FenceObj>() != null)
         {
+            FenceObj fObj = other.GetComponent<FenceObj>();
             if (GameManager.inventory.DeleteItem(fObj.needItemName, fObj.needCount))
+            {
                 fObj.Build();
+            }
+                
+            else
+            {
+                UI.Instance.ToastPopup($"{fObj.needItemName}, {fObj.needItemName}개가 필요합니다.");
+            }
+        }
+    }
+
+    void Fence()
+    {
+        if (other.GetComponent<Fence>() != null)
+        {
+            Fence f = other.GetComponent<Fence>();
+            if (GameManager.inventory.DeleteItem(fObj.needItemName, fObj.needCount))
+            {
+                fObj.Build();
+            }
+
             else
             {
                 UI.Instance.ToastPopup($"{fObj.needItemName}, {fObj.needItemName}개가 필요합니다.");

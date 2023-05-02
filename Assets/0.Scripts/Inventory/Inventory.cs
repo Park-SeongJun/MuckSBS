@@ -56,9 +56,10 @@ public class Inventory : MonoBehaviour
         ItemData id = itemData[itemIdx];
 
         // 아이템을 새로 만들어야 할 때
+        int count = Random.Range(2, 6);
         if (ItemAddCheck(id.Name) == true)
         {
-            inventoryItemList[lastIndex].SetData(id);
+            inventoryItemList[lastIndex].SetData(id, count);
             lastIndex++;
 
             UI.Instance.ToastPopup($"{id.Name} 을(를) 습득 하였습니다.");
@@ -68,7 +69,7 @@ public class Inventory : MonoBehaviour
             int idx = ItemFindIndex(id.Name);
             inventoryItemList[idx].SetCount(1, true);
 
-            UI.Instance.ToastPopup($"{id.Name} 을(를) 1개를 획득 하였습니다.");
+            UI.Instance.ToastPopup($"{id.Name} 을(를) {count}개를 획득 하였습니다.");
         }
     }
 
@@ -95,7 +96,12 @@ public class Inventory : MonoBehaviour
         int index = -1;
         for (int i = 0; i < inventoryItemList.Count; i++)
         {
-            if (inventoryItemList[i].ItemName == name)
+            Inventory iItem = null;
+            if (inventoryItemList[i].Equals(iItem))
+            {
+
+            }
+            if (inventoryItemList[i].ItemName != null && inventoryItemList[i].ItemName.Equals(name))
             {
                 index = i;
                 break;

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FenceObj : MonoBehaviour
 {
-    public int needCount = 2;
+    public int needCount = 0;
     public string needItemName = "Ελ³ͺΉ«";
 
     public void Build()
