@@ -9,6 +9,7 @@ TagManager:
   - build
   - enemy
   - buildx
+  - hunting1
   layers:
   - Default
   - TransparentFX
@@ -18,8 +19,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Enemy
+  - Fenceitem
   - 
   - 
   - 

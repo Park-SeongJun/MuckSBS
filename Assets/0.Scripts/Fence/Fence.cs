@@ -42,7 +42,7 @@ public class Fence : MonoBehaviour
     {
         maxHP = 10;
         Level = 0;
-        needUpgradeCount = (level + 1) + (transform.parent.GetComponent<FenceObj>().needCount * level);
+        
     }
 
     public void Hit(float dmg)

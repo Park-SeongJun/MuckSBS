@@ -91,6 +91,7 @@
     <Compile Include="Assets\0.Scripts\Inventory\InventoryItem.cs" />
     <Compile Include="Assets\0.Scripts\Object\Tree.cs" />
     <Compile Include="Assets\0.Scripts\Enemy\Enemy.cs" />
+    <Compile Include="Assets\9.Scenes\AIAgent.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
