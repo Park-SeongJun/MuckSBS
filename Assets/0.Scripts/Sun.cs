@@ -9,9 +9,9 @@ public class Sun : MonoBehaviour
     {
         transform.Rotate(Vector3.right * Time.deltaTime * 5f);
 
-        if(transform.rotation.x > 0)
+        /*if (transform.rotation.x > 0)
         {
             transform.rotation = Quaternion.Euler(0f, -30, 0f);
-        }
+        }*/
     }
 }

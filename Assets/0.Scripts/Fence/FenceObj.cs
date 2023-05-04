@@ -16,13 +16,13 @@ public class FenceObj : MonoBehaviour
         GetComponent<MeshRenderer>().enabled = true;
         GetComponent<MeshCollider>().enabled = true;
 
-        transform.GetChild(0).GetComponent<Fence>().Hide();
+        transform.parent.GetComponent<Fence>().Hide();
     }
     public void Hide()
     {
         GetComponent<MeshRenderer>().enabled = false;
         GetComponent<MeshCollider>().enabled = false;
 
-        transform.GetChild(0).GetComponent<Fence>().Show();
+        transform.parent.GetComponent<Fence>().Show();
     }
 }
