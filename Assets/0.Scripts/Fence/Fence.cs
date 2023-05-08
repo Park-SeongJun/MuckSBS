@@ -52,7 +52,7 @@ public class Fence : MonoBehaviour
         if(HP <= 0)
         {
             Hide();
-            transform.GetChild(0).GetComponent<FenceObj>().Show();
+            transform.parent.GetComponent<FenceObj>().Show();
         }
     }
 

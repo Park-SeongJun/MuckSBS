@@ -9,6 +9,7 @@ public class TurretBullet : MonoBehaviour
     Turret turret = null;
 
     float disableTimer = 0;
+    
     void Update()
     {
         transform.Translate(Vector3.forward * Time.deltaTime * 10f);

@@ -35,9 +35,9 @@ public class PlayerRay : MonoBehaviour
                         BuildX();
                         break;
 
-                    case "build":
+                    /*case "build":
                         Fence();
-                        break;
+                        break;*/
 
 
                 }
@@ -97,11 +97,11 @@ public class PlayerRay : MonoBehaviour
         }
     }
 
-    void Fence()
+    /*void Fence()
     {
         if (other.GetComponent<Fence>() != null)
         {
-            Fence f = other.GetComponent<Fence>();
+            Fence fence = other.GetComponent<Fence>();
             if (GameManager.inventory.DeleteItem(fObj.needItemName, fObj.needCount))
             {
                 fObj.Build();
@@ -112,5 +112,5 @@ public class PlayerRay : MonoBehaviour
                 UI.Instance.ToastPopup($"{fObj.needItemName}, {fObj.needItemName}개가 필요합니다.");
             }
         }
-    }
+    }*/
 }
